@@ -25,7 +25,7 @@ tasks = [
 
 @app.route('/', methods=['POST'])
 def index():
-    data = request.json
+    data = request.get_json() # try request.get_json()
     return jsonify(data)
     #name = request.form.get("name")
     #return name, 200
