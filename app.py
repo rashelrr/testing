@@ -25,8 +25,8 @@ tasks = [
 
 @app.route('/', methods=['POST'])
 def index():
-    data = request.form.get("name")
-    return data, 200
+    name = request.form.get("name")
+    return name, 200
 
     '''
     name = request.json['name']
