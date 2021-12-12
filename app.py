@@ -25,6 +25,11 @@ tasks = [
 
 @app.route('/', methods=['POST'])
 def index():
+    name = request.json['name']
+    create_row_data = {'name': str(name)}
+    return jsonify({'name': create_row_data}), 200
+
+    '''
     if not request.json or not 'title' in request.json:
         abort(400)
     task = {
@@ -34,7 +39,7 @@ def index():
         'done': False
     }
     tasks.append(task)
-    return jsonify({'task': task}), 201
+    return jsonify({'task': task}), 201'''
 
 
 @app.route('/ignore', methods=['GET'])
