@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request, make_response, url_for, redirect
+from flask import Flask, jsonify, request, make_response, url_for, redirect, abort
 import requests
 import json
 
@@ -22,13 +22,29 @@ tasks = [
     }
 ]
 
-@app.route('/', methods=['GET'])
+
+@app.route('/', methods=['POST'])
 def index():
+    if not request.json or not 'title' in request.json:
+        abort(400)
+    task = {
+        'id': tasks[-1]['id'] + 1,
+        'title': request.json['title'],
+        'description': request.json.get('description', ""),
+        'done': False
+    }
+    tasks.append(task)
+    return jsonify({'task': task}), 201
+
+
+@app.route('/ignore', methods=['GET'])
+def ignore():
+    return jsonify({'tasks': tasks})
+    #return jsonify(request.get_json())
     #response = requests.get(url)
     #return jsonify(response.json())
     
-    return jsonify({'tasks': tasks})
-    #return jsonify(request.get_json())
+
     '''name = request.json['name']
 
     create_row_data = {'name': str(name)}
@@ -43,5 +59,5 @@ def index():
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
 
