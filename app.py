@@ -9,9 +9,7 @@ url = 'https://127.0.0.1:5000/'
 
 @app.route('/', methods=['GET','POST'])
 def index():
-    print("hello all!!!")
-    return jsonify("bye to all!")
-    '''if request.method == 'POST':
+    if request.method == 'POST':
         print("YES>>>")
         name = request.json['name']
 
@@ -22,7 +20,7 @@ def index():
             headers={'Content-Type': 'application/json'}
         )
         print("the response: ", response)
-        return response.content'''
+        return response.content
 
 
 if __name__ == '__main__':

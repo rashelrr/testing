@@ -4,15 +4,13 @@ import requests
 app = Flask(__name__)
 
 
-@app.route('/', methods=['GET'])
+@app.route('/', methods=['POST'])
 def index():
-    print("hello!")
-    return jsonify("hello world!")
-    '''api_url = 'https://lioneats.herokuapp.com'
+    api_url = 'https://lioneats.herokuapp.com/'
     create_row_data = {'name': "rashel"}
     r = requests.post(url=api_url, json=create_row_data)
     print("the issue: ", r.status_code, r.reason, r.text)
-    return(r.text)'''
+    return(r.text)
 
 
 if __name__ == '__main__':
