@@ -12,7 +12,7 @@ def index():
     #response = requests.get(url)
     #return jsonify(response.json())
     
-    return jsonify(request.get_data())
+    return jsonify(request.get_json())
     '''name = request.json['name']
 
     create_row_data = {'name': str(name)}
