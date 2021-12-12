@@ -7,7 +7,7 @@ app = Flask(__name__)
 url = 'https://127.0.0.1:5000/'
 
 
-@app.route('/', methods=['POST'])
+@app.route('/', methods=['GET'])
 def index():
     return jsonify(request.get_json())
     '''name = request.json['name']
