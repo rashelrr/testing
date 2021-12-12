@@ -9,10 +9,10 @@ url = 'https://127.0.0.1:5000/'
 
 @app.route('/', methods=['GET'])
 def index():
-    response = requests.get(url)
-    return jsonify(response.json())
+    #response = requests.get(url)
+    #return jsonify(response.json())
     
-    # return jsonify(request.get_json())
+    return jsonify(request.get_data())
     '''name = request.json['name']
 
     create_row_data = {'name': str(name)}
