@@ -7,10 +7,9 @@ app = Flask(__name__)
 url = 'https://127.0.0.1:5000/'
 
 
-@app.route('/', methods=['GET','POST'])
+@app.route('/', methods=['POST'])
 def index():
-    print(request)
-    return jsonify(request)
+    return jsonify(request.get_json())
     '''name = request.json['name']
 
     create_row_data = {'name': str(name)}
