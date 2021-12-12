@@ -25,9 +25,13 @@ tasks = [
 
 @app.route('/', methods=['POST'])
 def index():
+    data = request.form.get("name")
+    return data, 200
+
+    '''
     name = request.json['name']
     create_row_data = {'name': str(name)}
-    return jsonify({'name': create_row_data}), 200
+    return jsonify({'name': create_row_data}), 200'''
 
     '''
     if not request.json or not 'title' in request.json:
